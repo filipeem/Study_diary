@@ -110,7 +110,7 @@ def edit
   puts "Item editado com sucesso."
 end
 
-def list_by_category
+def search_by_category
   itens = StudyItem.all
   itens.each_with_index { |x, i| 
     puts "#{x.category}"
@@ -148,6 +148,28 @@ def search
   end
 end
 
+def search_option
+  puts "Escolha uma opção de pesquisa:"
+
+  puts "
+      [1] Procurar por termo
+      [2] Procurar por categoria
+      [3] Procurar itens concluídos"
+  
+  option = gets.chomp.to_i
+  
+  case option 
+  when 1
+    search
+  when 2
+    search_by_category
+  when 3
+    list_by_completed
+  else
+    print "#{option} não é uma opção válida."
+  end
+end
+
 puts "Bem-vindo ao Diário de Estudos"
 option = 0
 
@@ -160,7 +182,7 @@ while option != 7
   when 2
     list_item
   when 3
-    search
+    search_option
   when 4
     list_by_completed
   when 5
