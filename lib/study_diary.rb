@@ -88,20 +88,20 @@ def edit
   when 1
     puts "Novo nome:"
     new_item = gets.chomp
-    StudyItem.update_item("name", new_item, itens[option -1])
+    StudyItem.update_item("name", new_item, itens[option -1].name)
 
   when 2
     puts "Nova descrição:"
     new_item = gets.chomp
-    StudyItem.update_item("description", new_item, itens[option -1])
+    StudyItem.update_item("description", new_item, itens[option -1].name)
 
   when 3
     puts "Nova categoria:"
     new_item = define_category
-    StudyItem.update_item("category", new_item, itens[option -1])
+    StudyItem.update_item("category", new_item, itens[option -1].name)
 
   when 4
-    StudyItem.update_item("completed", "1", itens[option -1])
+    StudyItem.update_item("completed", "1", itens[option -1].name)
   
   else
     puts "#{attribute} não é uma opção válida."
