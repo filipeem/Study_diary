@@ -2,7 +2,7 @@ require_relative 'study_item.rb'
 require_relative 'category.rb'
 
 def start_screen
-  puts "
+  puts <<~MENU
     ***************************************
      [1] Cadastrar um item para estudar   
      [2] Ver todos os itens cadastrados   
@@ -13,9 +13,9 @@ def start_screen
      [7] Sair                             
     ***************************************
                         
-      Escolha uma opção:   "
-
-  option = gets.chomp.to_i
+      Escolha uma opção:   
+    MENU
+  option = gets.to_i
 end
 
 
@@ -53,7 +53,7 @@ def delete
 
   puts "Escolha um item para apagar:"
 
-  index = gets.chomp.to_i
+  index = gets.to_i
 
   itens = StudyItem.all
 
@@ -69,7 +69,7 @@ def edit
 
   puts "Escolha um item para editar:"
 
-  option = gets.chomp.to_i
+  option = gets.to_i
 
   puts "
       [1] Editar nome
@@ -79,7 +79,7 @@ def edit
  
   puts "Escolha uma opção:"
 
-  attribute = gets.chomp.to_i
+  attribute = gets.to_i
 
   itens = StudyItem.all
   
@@ -156,7 +156,7 @@ def search_option
       [2] Procurar por categoria
       [3] Procurar itens concluídos"
   
-  option = gets.chomp.to_i
+  option = gets.to_i
   
   case option 
   when 1
