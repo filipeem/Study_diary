@@ -1,16 +1,24 @@
 require_relative 'study_item.rb'
 require_relative 'category.rb'
 
+INSERT       = 1
+VIEW_ALL     = 2
+SEARCH       = 3
+SEARCH_DONE  = 4
+EDIT         = 5
+DELETE       = 6
+EXIT         = 7
+
 def start_screen
   puts <<~MENU
     ***************************************
-     [1] Cadastrar um item para estudar   
-     [2] Ver todos os itens cadastrados   
-     [3] Buscar um item de estudo         
-     [4] Buscar itens concluídos          
-     [5] Editar                           
-     [6] Apagar                           
-     [7] Sair                             
+     [#{INSERT}] Cadastrar um item para estudar   
+     [#{VIEW_ALL}] Ver todos os itens cadastrados   
+     [#{SEARCH}] Buscar um item de estudo         
+     [#{SEARCH_DONE}] Buscar itens concluídos          
+     [#{EDIT}] Editar                           
+     [#{DELETE}] Apagar                           
+     [#{EXIT}] Sair                             
     ***************************************
                         
       Escolha uma opção:   
@@ -177,19 +185,19 @@ while option != 7
   option = start_screen
 
   case option 
-  when 1
+  when INSERT
     new_item
-  when 2
+  when VIEW_ALL
     list_item
-  when 3
+  when SEARCH
     search_option
-  when 4
+  when SEARCH_DONE
     list_by_completed
-  when 5
+  when EDIT
     edit
-  when 6
+  when DELETE
     delete
-  when 7
+  when EXIT
     puts "Finalizando o diário de estudos, volte logo, mantenha a disciplina!!!"
   else
     print "#{option} não é uma opção válida."
