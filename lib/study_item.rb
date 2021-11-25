@@ -4,7 +4,7 @@ require_relative 'category.rb'
 class StudyItem
   attr_accessor :name, :category, :description, :completed
 
-  def initialize(name:, category: Category.new(), description:, completed: 0)
+  def initialize(name:, category: Category.choose_category, description:, completed: 0)
     @name = name
     @category = category
     @description = description

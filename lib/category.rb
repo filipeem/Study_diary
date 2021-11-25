@@ -3,8 +3,11 @@ require 'sqlite3'
 class Category
   attr_accessor :name
 
+  def initialize(name)
+    @name = name
+  end
   
-  def initialize()
+  def self.choose_category
     categories = ['Ruby', 'Javascript', 'Python', 'Java']
     categories.each_with_index { |x, i| 
       puts "[#{i + 1}] #{x}"}
@@ -15,7 +18,7 @@ class Category
     if category > categories.length
      puts "#{category} não é uma opção válida."
     else
-     @name = categories[category-1]
+     new(categories[category-1])
     end
   end
 

@@ -35,7 +35,7 @@ def new_item
   puts "Digite uma descrição:"
 
   description = gets.chomp
-  category = Category.new
+  category = Category.choose_category
   new_item = StudyItem.new(name: name, description: description, category: category)
   
 
@@ -105,7 +105,7 @@ def edit
 
   when 3
     puts "Nova categoria:"
-    new_item = Category.new
+    new_item = Category.choose_category
     StudyItem.update_item("category", new_item.name, itens[option -1].name)
 
   when 4
