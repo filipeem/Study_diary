@@ -1,31 +1,21 @@
 require 'sqlite3'
-require_relative 'study_item.rb'
 
 class Category
   attr_accessor :name
 
-  def initialize()
-    puts "
-      [1] Ruby
-      [2] Javascript
-      [3] Python
-      [4] Java"
   
+  def initialize()
+    categories = ['Ruby', 'Javascript', 'Python', 'Java']
+    categories.each_with_index { |x, i| 
+      puts "[#{i + 1}] #{x}"}
     puts "Escolha uma categoria para seu item de estudo:"
   
-    category = gets.chomp.to_i
+    category = gets.to_i
     
-    case category
-    when 1
-    @name = "Ruby" 
-    when 2
-    @name = "Javascript"
-    when 3
-    @name = "Python"
-    when 4
-    @name = "Java"
-    else
+    if category > categories.length
      puts "#{category} não é uma opção válida."
+    else
+     @name = categories[category-1]
     end
   end
 

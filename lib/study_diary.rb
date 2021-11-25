@@ -105,8 +105,8 @@ def edit
 
   when 3
     puts "Nova categoria:"
-    new_item = define_category
-    StudyItem.update_item("category", new_item, itens[option -1].name)
+    new_item = Category.new
+    StudyItem.update_item("category", new_item.name, itens[option -1].name)
 
   when 4
     StudyItem.update_item("completed", "1", itens[option -1].name)
